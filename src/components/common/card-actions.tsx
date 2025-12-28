@@ -17,7 +17,7 @@ type Wish = Tables<'wishes'>;
 
 export default memo(function CardActions({ id, reserve, link, onToggleReserve }: PropsActions) {
 
-    const [added, setAdded] = useState<Wish[]>([]);
+    const [, setAdded] = useState<Wish[]>([]);
 
     useEffect(() => {
         const raw = localStorage.getItem('reserved');

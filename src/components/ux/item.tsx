@@ -1,10 +1,8 @@
-import { Button } from "../ui/button";
-import { Item, ItemActions, ItemContent, ItemDescription, ItemHeader, ItemTitle } from "../ui/item";
+import { Item, ItemContent, ItemDescription, ItemHeader, ItemTitle } from "../ui/item";
 import { motion } from 'framer-motion'
 import LikesBlock from "./likes";
 import type { Tables } from "../../database.types";
 import { memo } from "react";
-import { Check } from "lucide-react";
 import zaglyshka from '/no-photo.jpg'
 import CardActions from "../common/card-actions";
 
