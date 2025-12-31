@@ -1,5 +1,5 @@
 import { Item, ItemContent, ItemDescription, ItemHeader, ItemTitle } from "../ui/item";
-import { motion } from 'framer-motion'
+import { delay, motion } from 'framer-motion'
 import LikesBlock from "./likes";
 import type { Tables } from "../../database.types";
 import { memo } from "react";
@@ -13,11 +13,11 @@ export default memo(function ItemBlock({ id, likes, title, is_reserved, descript
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 200 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 'some' }}
-            transition={{ duration: .5, delay: Math.random() * .3 }}>
-            <Item variant='outline' className="grid
+            initial={{ opacity: 0, y: -200, zIndex: -1 }}
+            whileInView={{ opacity: 1, y: 0, zIndex: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: .5, delay: Math.random() * .3, zIndex: { delay: .5 } }}>
+            <Item variant='outline' className="
               relative content-start border-ebony justify-normal
               items-start px-0 w-full py-0 pb-5 overflow-hidden h-full">
                 {is_reserved
@@ -38,11 +38,11 @@ export default memo(function ItemBlock({ id, likes, title, is_reserved, descript
                         <LikesBlock likes={likes || 0} />
                     </div>
                 </ItemHeader>
-                <ItemContent className="px-5 ">
+                <ItemContent className="px-5 pb-5" style={{ height: 'calc(100% - 300px)' }}>
                     <ItemTitle className="text-dark-walnut text-left text-2xl font-bold">
                         {title}
                     </ItemTitle>
-                    <ItemDescription className="text-left h-15 text-lg text-ebony">
+                    <ItemDescription className="text-left mt-auto h-15 text-lg text-ebony">
                         {description}
                     </ItemDescription>
                     <CardActions onToggleReserve={reload} id={id} reserve={is_reserved || false} link={link_to_marketplace || '#'} />

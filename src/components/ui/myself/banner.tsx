@@ -28,7 +28,7 @@ export default memo(function BannerMoney() {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: .5, delay: 1.5 }}
-                className="text-white border relative z-1 border-ebony m-2 md:m-5 md:p-5 px-3 py-5 md:backdrop-blur-xs backdrop-blur-md  rounded-xl">
+                className="text-white border relative z-1 border-ebony m-2 mx-2px w-full md:m-5 md:w-max md:p-5 px-3 py-5 md:backdrop-blur-xs backdrop-blur-md  rounded-xl">
                 <div className="text-2xl text-dark-walnut title">Если тут ничего не понравилось</div>
                 <div className="mt-2.5 text-dark-walnut text-xl">Всегда есть денежный подарок!</div>
             </motion.div>
