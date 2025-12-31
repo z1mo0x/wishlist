@@ -21,7 +21,7 @@ type Wish = Tables<'wishes'>;
 export default memo(function CardActions({ id, reserve, link, onToggleReserve }: PropsActions) {
     const { items, setItems } = useStorage();
     const [loading, setLoading] = useState<boolean>(false);
-    const [added, setAdded] = useState<Wish[]>([]);
+    const [_, setAdded] = useState<Wish[]>([]);
 
     // Синхронизируем added с items.reserved
     useEffect(() => {

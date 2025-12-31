@@ -27,7 +27,7 @@ export default memo(function OrderedPopup({ reload }: { reload: () => Promise<vo
 
     const deleteOrder = useCallback(
         async (id: number, title: string) => {
-            const { data, error } = await supabase
+            const { error } = await supabase
                 .from('wishes')
                 .update({ is_reserved: false })
                 .eq('id', id)

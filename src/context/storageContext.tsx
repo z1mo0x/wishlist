@@ -1,12 +1,12 @@
 import { createContext, useContext, useEffect, useState } from "react"
 
-type Storage = {
+export type Storage = {
     reserved: string
 }
 
-interface StorageContext {
+export interface StorageContext {
     items: Storage,
-    setItems: (items: Storage) => void
+    setItems: React.Dispatch<React.SetStateAction<Storage>>
 
 }
 

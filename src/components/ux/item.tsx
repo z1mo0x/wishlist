@@ -1,5 +1,5 @@
 import { Item, ItemContent, ItemDescription, ItemHeader, ItemTitle } from "../ui/item";
-import { delay, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import LikesBlock from "./likes";
 import type { Tables } from "../../database.types";
 import { memo } from "react";
