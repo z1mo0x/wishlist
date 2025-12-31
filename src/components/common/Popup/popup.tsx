@@ -53,7 +53,7 @@ export default memo(function OrderedPopup({ reload }: { reload: () => Promise<vo
             {reservedItems.length > 0 && (
                 <div
                     onClick={() => setOpened((prev) => !prev)}
-                    className="rounded fixed bottom-5 z-5 right-5 bg-white duration-500 p-5 cursor-pointer overflow-hidden"
+                    className={`${opened ? ' max-lg:w-full max-lg:h-full max-lg:bottom-0 max-lg:right-0' : ''} rounded fixed bottom-5 z-5 right-5 bg-white duration-500 p-5 cursor-pointer overflow-hidden`}
                 >
                     <div className="flex gap-5 justify-between">
                         Ваш выбор {opened ? <X /> : <ShoppingCart />}
@@ -68,12 +68,12 @@ export default memo(function OrderedPopup({ reload }: { reload: () => Promise<vo
                                 onClick={(e) => e.stopPropagation()}
                             >
                                 <div>Вы выбрали подарить:</div>
-                                <div>
+                                <div className='grid gap-5 max-h-[90vh] overflow-auto'>
                                     {reservedItems.length > 0
                                         ? reservedItems.map((item) => (
-                                            <div key={item.id} className="flex items-center gap-2.5 mt-2.5">
-                                                <div className="font-bold">{item.title}</div>
-                                                <div className="ml-auto">
+                                            <div key={item.id} className="max-md:border max-md:border-ebony max-md:py-2.5 flex items-center max-md:flex-col gap-2.5 mt-2.5">
+                                                <div className="font-bold max-md:text-center text-left">{item.title}</div>
+                                                <div className="max-md:ml-0 ml-auto">
                                                     Цена товара: <span className="font-bold text-lg">{item.price}</span> руб.
                                                 </div>
                                                 <Button
@@ -89,7 +89,7 @@ export default memo(function OrderedPopup({ reload }: { reload: () => Promise<vo
                             </motion.div>
                         )}
                     </AnimatePresence>
-                </div>
+                </div >
             )}
         </>
     );
