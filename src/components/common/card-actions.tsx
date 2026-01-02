@@ -74,9 +74,24 @@ export default memo(function CardActions({ id, reserve, link, onToggleReserve }:
     return (
         <>
             {reserve ? (
-                <div className="mt-2.5 bg-ebony px-4.5 py-2 rounded-lg text-white flex gap-2.5 items-center font-bold justify-center">
-                    <Check />
-                    Заказано
+                <div className="mt-2.5 grid grid-cols-2 gap-2 items-center">
+                    <div className="text-[16px] font-bold bg-ebony px-4 py-1.5 rounded-lg text-white flex gap-2.5 items-center justify-center">
+                        <Check />
+                        Заказано
+                    </div>
+                    <motion.div
+                        className="w-full"
+                        initial={{ scale: 1 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ duration: 0.3, type: 'spring', stiffness: 200 }}
+                    >
+                        <Button className="cursor-pointer w-full font-bold text-[16px]" variant="outline" asChild>
+                            <a target='_blank' href={link || '#'}>
+                                Ссылка
+                            </a>
+                        </Button>
+                    </motion.div>
                 </div>
             ) : (
                 <ItemActions className="mt-2.5 grid grid-cols-2">
@@ -87,7 +102,7 @@ export default memo(function CardActions({ id, reserve, link, onToggleReserve }:
                         transition={{ duration: 0.3, type: 'spring', stiffness: 200 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <Button onClick={handleOrder} className="cursor-pointer w-full text-[16px] font-bold">
+                        <Button disabled={loading} onClick={handleOrder} className="cursor-pointer w-full text-[16px] font-bold">
                             Я подарю это
                         </Button>
                     </motion.div>
@@ -98,7 +113,7 @@ export default memo(function CardActions({ id, reserve, link, onToggleReserve }:
                         whileTap={{ scale: 0.95 }}
                         transition={{ duration: 0.3, type: 'spring', stiffness: 200 }}
                     >
-                        <Button disabled={loading} className="cursor-pointer w-full font-bold text-[16px]" variant="outline" asChild>
+                        <Button className="cursor-pointer w-full font-bold text-[16px]" variant="outline" asChild>
                             <a target='_blank' href={link || '#'}>
                                 Ссылка
                             </a>
